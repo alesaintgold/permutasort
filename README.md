@@ -17,12 +17,11 @@ Note: this does not use sorting algorithms, but sorting operators, so for exampl
 HOW TO USE (from command line):
   #python main.py n O
 
-  n can be any positive integer, the program will examine every n-permutations
-  O represent the sorting operator, at the moment are only supported:
-      * B: bubble-sort
-      * Q: queue-sort
-      * S: stack-sort
-      * any combination of two of those (e.g QS(x) = Q(S(x)))
+At the moment the only operators supported are:
+  * B: bubble-sort
+  * Q: queue-sort
+  * S: stack-sort
+  * any combination of two of those (e.g QS(x) = Q(S(x)))
 
 NEXT TO IMPLEMENT:
   * pop-container operators
