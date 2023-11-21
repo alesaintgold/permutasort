@@ -1,7 +1,13 @@
 # PermutaSort
 This is a software that I built for my bechelor degree thesis in computer science.
-Its purpose is to help analyzing the behavior of a class of sorting operators 
-  (e.g. bubblesort, stacksort, queuesort) with class patterns of whole numbers.
+Its purpose is to help analyzing the behavior of sorting operators 
+  (e.g. bubblesort, stacksort, queuesort) with permutations of whole numbers.
+
+This program take as arguments a whole number n and a sorting operators O and print 
+the list and amount of:
+  * n-permutations sortable by O
+  * n-permutations not sortable by O
+  * possible outcomes when applying O to every n-permutations
 
 Note: this does not use sorting algorithms, but sorting operators, so for example,
   for the bubblesort algorithm we observe the operator B() representing only one
@@ -9,10 +15,10 @@ Note: this does not use sorting algorithms, but sorting operators, so for exampl
   bubblesort(x) = B(...B(B(x))...)
 
 HOW TO USE (from command line):
-  #python main.py 3 Q
+  #python main.py n O
 
-  3 can be any positive integer
-  Q represent the sorting operator, at the moment are only supported:
+  n can be any positive integer, the program will examine every n-permutations
+  O represent the sorting operator, at the moment are only supported:
       * B: bubble-sort
       * Q: queue-sort
       * S: stack-sort
