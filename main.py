@@ -1,6 +1,6 @@
 import sys
-from operators import *
-from selector import SortOperatorSelect
+from src.operators import *
+from src.selector import select_permutations
 
 if(len(sys.argv) != 3):
 	print("ERROR: unexpected number of arguments")
@@ -9,7 +9,7 @@ if(len(sys.argv) != 3):
 n = int(sys.argv[1])
 op = sys.argv[2]
 
-selector = SortOperatorSelect(n, getOperator(op))
+selector = select_permutations(n, getOperator(op))
 
 sortable = selector.sortable_permutations()
 unsortable = selector.unsortable_permutations()
@@ -23,6 +23,6 @@ def printlist(list):
 	return result
 
 print("\nThe following " + str(len(sortable)) +" "+str(n)+"-permutations are sortable with the operator "+op+":\n" + printlist(sortable))
-print("\nThe following " + str(len(unsortable)) +" "+str(n)+"-permutations are not sortable with the operator "+op+":\n" + printlist(unsortable))
-print("\nThe operator "+op+" can give the following results when applied to " + str(n) + "-permutations:\n" + printlist(oucomes))
+print("The following " + str(len(unsortable)) +" "+str(n)+"-permutations are not sortable with the operator "+op+":\n" + printlist(unsortable))
+print("The operator "+op+" can give the following "+ str(len(oucomes))+" results when applied to " + str(n) + "-permutations:\n" + printlist(oucomes))
 

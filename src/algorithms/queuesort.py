@@ -1,4 +1,4 @@
-from algorithms.devices.queue import Queue 
+from src.algorithms.devices.queue import Queue 
 
 #queue-sort
 def Q(P):

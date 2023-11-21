@@ -1,6 +1,6 @@
 import itertools
 
-class SortOperatorSelect:
+class select_permutations:
 	def __init__(self,num,op):
 		self.sortable = []
 		self.unsortable = []

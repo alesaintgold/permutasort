@@ -1,4 +1,4 @@
-from algorithms.devices.stack import Stack
+from src.algorithms.devices.stack import Stack
 
 #stack-sort
 def S(P):
