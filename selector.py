@@ -6,6 +6,10 @@ class SortOperatorSelect:
 		self.unsortable = []
 		self.possible_outcomes = []
 
+		if num <=0:
+			print("ERROR: was expecting a positive integer but got "  +str(num))
+			exit()
+
 		perms = list(itertools.permutations(range(1,num+1)))
 
 		for P in perms:
@@ -27,5 +31,5 @@ class SortOperatorSelect:
 	def unsortable_permutations(self):
 		return self.unsortable
 
-	def possible_outcomes(self):
+	def outcomes(self):
 		return self.possible_outcomes
