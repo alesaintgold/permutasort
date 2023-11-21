@@ -14,10 +14,10 @@ HOW TO USE (from command line):
   3 can be any positive integer
   Q represent the sorting operator:
     at the moment are only supported:
-      #B: bubble-sort
-      #Q: queue-sort
-      #S: stack-sort
-      #any combination of two of those (e.g QS(x) = Q(S(x)))
+      *B: bubble-sort
+      *Q: queue-sort
+      *S: stack-sort
+      *any combination of two of those (e.g QS(x) = Q(S(x)))
 
 NEXT TO IMPLEMENT:
   * pop-container operators
