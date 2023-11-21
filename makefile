@@ -1,2 +1,2 @@
 rmcache:
-	rm -rd _* algorithms/_* algorithms/devices/_* 
+	rm -rd __pycache__ algorithms/__pycache__ algorithms/devices/__pycache__ 
