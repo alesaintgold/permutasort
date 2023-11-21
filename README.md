@@ -12,8 +12,7 @@ HOW TO USE (from command line):
   #python main.py 3 Q
 
   3 can be any positive integer
-  Q represent the sorting operator:
-    at the moment are only supported:
+  Q represent the sorting operator, at the moment are only supported:
       * B: bubble-sort
       * Q: queue-sort
       * S: stack-sort
