@@ -1,19 +1,17 @@
-from queue import LifoQueue
-
 class Stack:
 	def __init__(self):
-		self.innerStack = LifoQueue(maxsize=100)
+		self.innerStack = []
 
 	def push(self, value):
-		self.innerStack.put(value);
+		self.innerStack.append(value)
 
 	def pop(self):
-		return self.innerStack.get()
-
-	def peek(self):
-		value = self.innerStack.get()
-		self.innerStack.put(value)
+		value = self.innerStack[len(self.innerStack)-1] 
+		self.innerStack.remove(value)
 		return value
 
+	def peek(self):
+		return self.innerStack[len(self.innerStack)-1] 
+
 	def isEmpty(self):
-		return self.innerStack.qsize()==0
+		return len(self.innerStack)==0

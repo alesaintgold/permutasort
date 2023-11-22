@@ -11,6 +11,7 @@ def Q(P):
 			while not queue.isEmpty() and queue.peek()<pi:
 				output.append(queue.dequeue())
 			output.append(pi)
+	# emtpy the queue in the output
 	while not queue.isEmpty():
 		output.append(queue.dequeue())
 	return output
