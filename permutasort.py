@@ -5,7 +5,7 @@ from src.operators import *
 from src.selector import select_permutations
 from src.utils import printlist
 
-class PermutaSort:
+class PermutaSortGUI:
 	def __init__(self):
 		self.window = tk.Tk(	)
 		self.window.geometry("300x200")
@@ -74,7 +74,7 @@ if __name__ == '__main__':
 	outcomes = ps.outcomes()
 
 	sortable_str = "\nThe following " + str(len(sortable)) +" "+str(n)+"-permutations are sortable with the operator "+op+":\n" + printlist(sortable)
-	unsortable_str = "\nThe following " + str(len(sortable)) +" "+str(n)+"-permutations are not sortable with the operator "+op+":\n" + printlist(sortable)
+	unsortable_str = "\nThe following " + str(len(unsortable)) +" "+str(n)+"-permutations are not sortable with the operator "+op+":\n" + printlist(unsortable)
 	outcomes_str = "The operator "+op+" can give the following "+ str(len(outcomes))+" results when applied to " + str(n) + "-permutations:\n" + printlist(outcomes)
 
 	print(sortable_str)
@@ -96,5 +96,5 @@ if __name__ == '__main__':
 
 
 	#for gui
-	#PermutaSort()
+	#PermutaSortGUI()
 

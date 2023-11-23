@@ -1,6 +1,10 @@
 rmcache:
 	rm -rd src/__pycache__ src/algorithms/__pycache__ src/algorithms/devices/__pycache__
 
+rmlog:
+	rm log/*
 clean:
 	make rmcache
-	rm log/*
+	make rmlog
+
+
