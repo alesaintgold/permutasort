@@ -73,11 +73,11 @@ if __name__ == '__main__':
 	unsortable = ps.unsortable_permutations()
 	outcomes = ps.outcomes()
 
-	sortable_str = "\nThe following " + str(len(sortable)) +" "+str(n)+"-permutations are sortable with the operator "+op+":\n" + printlist(sortable)
-	unsortable_str = "\nThe following " + str(len(unsortable)) +" "+str(n)+"-permutations are not sortable with the operator "+op+":\n" + printlist(unsortable)
+	sortable_str = "The following " + str(len(sortable)) +" "+str(n)+"-permutations are sortable with the operator "+op+":\n" + printlist(sortable)
+	unsortable_str = "The following " + str(len(unsortable)) +" "+str(n)+"-permutations are not sortable with the operator "+op+":\n" + printlist(unsortable)
 	outcomes_str = "The operator "+op+" can give the following "+ str(len(outcomes))+" results when applied to " + str(n) + "-permutations:\n" + printlist(outcomes)
 
-	print(sortable_str)
+	print('\n'+sortable_str)
 	print(unsortable_str)
 	print(outcomes_str)
 
@@ -93,8 +93,7 @@ if __name__ == '__main__':
 	file_outcome.write(outcomes_str)
 	file_outcome.close()
 
-
-
-	#for gui
+else: #for gui
+	pass
 	#PermutaSortGUI()
 
