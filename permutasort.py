@@ -59,41 +59,44 @@ class PermutaSortGUI:
 		new_window.grab_set()
 
 if __name__ == '__main__':
-	# command line
-	if(len(sys.argv) != 3):
-	 	print("ERROR: unexpected number of arguments")
-	 	exit()
+	narg = len(sys.argv)
+	if narg not in (1,3):
+		print("ERROR: unexpected number of arguments: " + str(sys.argv[1:]))
+		exit()
 
-	n = sys.argv[1]
-	op = sys.argv[2]
+	elif len(sys.argv) == 3:
+		
+		# command line
+		
+		n = sys.argv[1]
+		op = sys.argv[2]
 
-	ps = select_permutations(int(n), getOperator(op))
+		ps = select_permutations(int(n), getOperator(op))
 
-	sortable = ps.sortable_permutations()
-	unsortable = ps.unsortable_permutations()
-	outcomes = ps.outcomes()
+		sortable = ps.sortable_permutations()
+		unsortable = ps.unsortable_permutations()
+		outcomes = ps.outcomes()
 
-	sortable_str = "The following " + str(len(sortable)) +" "+str(n)+"-permutations are sortable with the operator "+op+":\n" + printlist(sortable)
-	unsortable_str = "The following " + str(len(unsortable)) +" "+str(n)+"-permutations are not sortable with the operator "+op+":\n" + printlist(unsortable)
-	outcomes_str = "The operator "+op+" can give the following "+ str(len(outcomes))+" results when applied to " + str(n) + "-permutations:\n" + printlist(outcomes)
+		sortable_str = "The following " + str(len(sortable)) +" "+str(n)+"-permutations are sortable with the operator "+op+":\n" + printlist(sortable)
+		unsortable_str = "The following " + str(len(unsortable)) +" "+str(n)+"-permutations are not sortable with the operator "+op+":\n" + printlist(unsortable)
+		outcomes_str = "The operator "+op+" can give the following "+ str(len(outcomes))+" results when applied to " + str(n) + "-permutations:\n" + printlist(outcomes)
 
-	print('\n'+sortable_str)
-	print(unsortable_str)
-	print(outcomes_str)
+		print('\n'+sortable_str)
+		print(unsortable_str)
+		print(	outcomes_str)
 
-	file_sortable = open("./log/"+n+op+"sortable.txt", "w")
-	file_sortable.write(sortable_str)
-	file_sortable.close()
+		file_sortable = open("./log/"+n+op+"sortable.txt", "w")
+		file_sortable.write(sortable_str)
+		file_sortable.close()
 
-	file_unsortable = open( "./log/"+n+op+"unsortable.txt","w")
-	file_unsortable.write(unsortable_str)
-	file_unsortable.close()
+		file_unsortable = open( "./log/"+n+op+"unsortable.txt","w")
+		file_unsortable.write(unsortable_str)
+		file_unsortable.close()
 
-	file_outcome = open("./log/"+n+op+"outcome.txt","w")
-	file_outcome.write(outcomes_str)
-	file_outcome.close()
+		file_outcome = open("./log/"+n+op+"outcome.txt","w")
+		file_outcome.write(outcomes_str)
+		file_outcome.close()
 
-else: #for gui
-	pass
-	#PermutaSortGUI()
+	else:
+		PermutaSortGUI()
 

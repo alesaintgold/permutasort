@@ -3,8 +3,7 @@ rmcache:
 
 rmlog:
 	rm log/*
+
 clean:
 	make rmcache
 	make rmlog
-
-
