@@ -3,7 +3,6 @@ import tkinter as tk
 import itertools
 
 from src.operators import *
-from src.utils import printlist
 
 class selectorPermutations:
 	def __init__(self,num,op):
@@ -49,7 +48,7 @@ class PermutaSortGUI:
 		label1.pack()
 
 		n_frame = tk.Frame()
-		n_label = tk.Label(master = n_frame, text = "\n\nn = ") 
+		n_label = tk.Label(master = n_frame, text = "\nn = ") 
 		n_label.pack()
 		self.n_box = tk.Entry(master = n_frame, width = 10)
 		self.n_box.pack()
@@ -81,7 +80,7 @@ class PermutaSortGUI:
 		self.display(unsortable, "The " +n+"-permutations not sortable by "+op+" are the following "+str(len(unsortable))+":")
 		self.display(outcomes, "Applying "+op+" to " + n + "-permutations can generate the following outcomes:")
 
-		#self.window.destroy()
+		writefiles(n, op,sortable, unsortable, outcomes)
 
 	def display(self, list, message):
 		new_window = tk.Toplevel(self.window)
@@ -93,6 +92,25 @@ class PermutaSortGUI:
 
 		new_window.grab_set()
 
+def printlist(list):
+	result = ""
+	for item in list:
+		result = result +(str(item) + "\n")
+	return result
+
+def writefiles(n, op, sortable_str, unsortable_str, outcomes_str):
+	file_sortable = open("./log/"+n+op+"sortable.txt", "w")
+	file_sortable.write(str(sortable_str) + "\n")
+	file_sortable.close()
+
+	file_unsortable = open( "./log/"+n+op+"unsortable.txt","w")
+	file_unsortable.write(str(unsortable_str) + "\n")
+	file_unsortable.close()
+
+	file_outcome = open("./log/"+n+op+"outcome.txt","w")
+	file_outcome.write(str(outcomes_str) + "\n")
+	file_outcome.close()
+
 if __name__ == '__main__':
 	
 	narg = len(sys.argv)
@@ -103,7 +121,6 @@ if __name__ == '__main__':
 
 	elif narg == 3:
 		# command line
-		
 		n = sys.argv[1]
 		op = sys.argv[2]
 
@@ -119,20 +136,11 @@ if __name__ == '__main__':
 
 		print('\n'+sortable_str)
 		print(unsortable_str)
-		print(	outcomes_str)
+		print(outcomes_str)
 
-		file_sortable = open("./log/"+n+op+"sortable.txt", "w")
-		file_sortable.write(sortable_str)
-		file_sortable.close()
-
-		file_unsortable = open( "./log/"+n+op+"unsortable.txt","w")
-		file_unsortable.write(unsortable_str)
-		file_unsortable.close()
-
-		file_outcome = open("./log/"+n+op+"outcome.txt","w")
-		file_outcome.write(outcomes_str)
-		file_outcome.close()
+		writefiles(n, op, sortable_str, unsortable_str, outcomes_str)
 
 	else:
+		#gui
 		PermutaSortGUI()
 

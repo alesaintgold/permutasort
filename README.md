@@ -25,6 +25,4 @@ At the moment the only operators supported are:
 
 NEXT TO IMPLEMENT:
   * pop-container operators
-  * print results on files 
-  * combinations of more than two operators (...?)
   
