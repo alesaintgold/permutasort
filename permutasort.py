@@ -1,9 +1,44 @@
 import sys
 import tkinter as tk
+import itertools
 
 from src.operators import *
-from src.selector import select_permutations
 from src.utils import printlist
+
+class selectorPermutations:
+	def __init__(self,num,op):
+		self.sortable = []
+		self.unsortable = []
+		self.possible_outcomes = []
+
+		if num <=0:
+			print("ERROR: was expecting a positive integer but got "  +str(num))
+			exit()
+
+		perms = list(itertools.permutations(range(1,num+1)))
+
+		for P in perms:
+			sorted_P = op(P)
+
+			#adding outcome to the list
+			if sorted_P not in self.possible_outcomes:
+					self.possible_outcomes.append(sorted_P)
+
+			#adding permutations to the right list
+			if sorted_P == sorted(P):
+				self.sortable.append(P)
+			else:
+				self.unsortable.append(P)
+
+	def sortable_permutations(self):
+		return self.sortable
+
+	def unsortable_permutations(self):
+		return self.unsortable
+
+	def outcomes(self):
+		return self.possible_outcomes
+
 
 class PermutaSortGUI:
 	def __init__(self):
@@ -36,7 +71,7 @@ class PermutaSortGUI:
 		n = self.n_box.get()
 		op = self.o_box.get()
 
-		ps = select_permutations(int(n), getOperator(op))
+		ps = selectorPermutations(int(n), getOperator(op))
 
 		sortable = ps.sortable_permutations()
 		unsortable = ps.unsortable_permutations()
@@ -44,34 +79,35 @@ class PermutaSortGUI:
 
 		self.display(sortable, "The " +n+"-permutations sortable by "+op+" are the following "+str(len(sortable))+":")
 		self.display(unsortable, "The " +n+"-permutations not sortable by "+op+" are the following "+str(len(unsortable))+":")
-		self.display(sortable, "Applying "+op+" to " + n + "-permutations can generate the following outcomes:")
+		self.display(outcomes, "Applying "+op+" to " + n + "-permutations can generate the following outcomes:")
 
 		#self.window.destroy()
 
 	def display(self, list, message):
 		new_window = tk.Toplevel(self.window)
 
-		label = tk.Label(text=message + "\n")
+		label = tk.Label(new_window, text=message + "\n")
 		label.pack()
-		str_list = tk.Label(text=printlist(list))
+		str_list = tk.Label(new_window, text=printlist(list))
 		str_list.pack()
 
 		new_window.grab_set()
 
 if __name__ == '__main__':
+	
 	narg = len(sys.argv)
+	
 	if narg not in (1,3):
 		print("ERROR: unexpected number of arguments: " + str(sys.argv[1:]))
 		exit()
 
-	elif len(sys.argv) == 3:
-		
+	elif narg == 3:
 		# command line
 		
 		n = sys.argv[1]
 		op = sys.argv[2]
 
-		ps = select_permutations(int(n), getOperator(op))
+		ps = selectorPermutations(int(n), getOperator(op))
 
 		sortable = ps.sortable_permutations()
 		unsortable = ps.unsortable_permutations()
