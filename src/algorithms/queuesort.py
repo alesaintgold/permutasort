@@ -15,3 +15,9 @@ def Q(P):
 	while not queue.isEmpty():
 		output.append(queue.dequeue())
 	return output
+
+class POPQueue():
+	"""yet to implement"""
+	def __init__(self, arg):
+		self.arg = arg
+		

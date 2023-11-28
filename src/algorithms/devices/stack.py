@@ -15,3 +15,9 @@ class Stack:
 
 	def isEmpty(self):
 		return len(self.innerStack)==0
+
+class POPStack():
+	"""yet to implement"""
+	def __init__(self, arg):
+		self.arg = arg
+		
