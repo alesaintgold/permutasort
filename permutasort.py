@@ -76,13 +76,13 @@ class PermutaSortGUI:
 		unsortable = ps.unsortable_permutations()
 		outcomes = ps.outcomes()
 
-		self.display(sortable, "The " +n+"-permutations sortable by "+op+" are the following "+str(len(sortable))+":")
-		self.display(unsortable, "The " +n+"-permutations not sortable by "+op+" are the following "+str(len(unsortable))+":")
-		self.display(outcomes, "Applying "+op+" to " + n + "-permutations can generate the following outcomes:")
+		self.displayList(sortable, "The " +n+"-permutations sortable by "+op+" are the following "+str(len(sortable))+":")
+		self.displayList(unsortable, "The " +n+"-permutations not sortable by "+op+" are the following "+str(len(unsortable))+":")
+		self.displayList(outcomes, "Applying "+op+" to " + n + "-permutations can generate the following outcomes:")
 
 		writefiles(n, op,sortable, unsortable, outcomes)
 
-	def display(self, list, message):
+	def displayList(self, list, message):
 		new_window = tk.Toplevel(self.window)
 
 		label = tk.Label(new_window, text=message + "\n")
@@ -116,7 +116,7 @@ if __name__ == '__main__':
 	narg = len(sys.argv)
 	
 	if narg not in (1,3):
-		print("ERROR: unexpected number of arguments: " + str(sys.argv[1:]))
+		print("ERROR: expected 2 arguments or none, but got: " + str(sys.argv[1:]))
 		exit()
 
 	elif narg == 3:
@@ -143,4 +143,3 @@ if __name__ == '__main__':
 	else:
 		#gui
 		PermutaSortGUI()
-
