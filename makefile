@@ -1,8 +1,8 @@
 rmcache:
-	rm -rd src/__pycache__ src/algorithms/__pycache__ src/algorithms/devices/__pycache__
+	rm -frd __pycache__ src/__pycache__ src/algorithms/__pycache__ src/algorithms/devices/__pycache__
 
 rmlog:
-	rm log/*
+	rm -f log/*
 
 clean:
 	make rmcache

@@ -12,22 +12,18 @@ class selectorPermutations:
 
 		if num <=0:
 			print("ERROR: was expecting a positive integer but got "  +str(num))
-			exit()
-
-		perms = list(itertools.permutations(range(1,num+1)))
-
-		for P in perms:
-			sorted_P = op(P)
-
-			#adding outcome to the list
-			if sorted_P not in self.possible_outcomes:
-					self.possible_outcomes.append(sorted_P)
-
-			#adding permutations to the right list
-			if sorted_P == sorted(P):
-				self.sortable.append(P)
-			else:
-				self.unsortable.append(P)
+		else:
+			perms = list(itertools.permutations(range(1,num+1)))
+			for P in perms:
+				sorted_P = op(P)
+				#adding outcome to the list
+				if sorted_P not in self.possible_outcomes:
+						self.possible_outcomes.append(sorted_P)
+				#adding permutations to the right list
+				if sorted_P == sorted(P):
+					self.sortable.append(P)
+				else:
+					self.unsortable.append(P)
 
 	def sortable_permutations(self):
 		return self.sortable

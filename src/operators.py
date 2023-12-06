@@ -10,14 +10,12 @@ algorithmsIndex = {
 }
 
 def compositionOf(op1,op2):
-	return lambda P: op1(op2(P))
+	return lambda P: op2(op1(P))
 
 def getOperator(key):
 	if len(key)==1:
 		if key not in algorithmsIndex:
 			print("ERROR: unsupported operator " + key)
 			exit()
-		else:
-			return algorithmsIndex[key]
-	else:
-		return compositionOf(getOperator(key[0:1]), getOperator(key[1:]))
+		return algorithmsIndex[key]
+	return compositionOf(getOperator(key[:-1]), getOperator(key[-1]))
