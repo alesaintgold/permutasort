@@ -18,4 +18,4 @@ def getOperator(key):
 			print("ERROR: unsupported operator " + key)
 			exit()
 		return algorithmsIndex[key]
-	return compositionOf(getOperator(key[:-1]), getOperator(key[-1]))
+	return compositionOf(getOperator(key[0]), getOperator(key[1:]))
