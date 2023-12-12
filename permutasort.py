@@ -10,23 +10,29 @@ class selectorPermutations:
 			print("ERROR: was expecting a positive integer but got "  +str(num))
 			exit()
 
+		# initialization of lists
 		self.__sortable = []
 		self.__unsortable = []
 		self.__outcomes = []
 
+		# generation of permutations
 		perms = list(permutations(range(1,num+1)))
+		
 		for P in perms:
+
+			# applying the operator to the permutation
 			op_P_ = op(P)
 			
-			#adding outcome to the list
+			# adding outcome to the list
 			if op_P_ not in self.__outcomes:
-					self.__outcomes.append(op_P_)
+				self.__outcomes.append(op_P_)
 			
-			#adding permutations to the right list
+			# adding permutations to the right list
 			if isPermutationSorted(op_P_):
 				self.__sortable.append(P)
 			else:
 				self.__unsortable.append(P)
+
 		
 	def getSortable(self):
 		return self.__sortable
