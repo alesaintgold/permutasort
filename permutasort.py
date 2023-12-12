@@ -16,9 +16,9 @@ class selectorPermutations:
 		self.__outcomes = []
 
 		# generation of permutations
-		perms = list(permutations(range(1,num+1)))
+		permutations_list = list(permutations(range(1,num+1)))
 		
-		for P in perms:
+		for P in permutations_list:
 
 			# applying the operator to the permutation
 			op_P_ = op(P)
@@ -32,7 +32,6 @@ class selectorPermutations:
 				self.__sortable.append(P)
 			else:
 				self.__unsortable.append(P)
-
 		
 	def getSortable(self):
 		return self.__sortable

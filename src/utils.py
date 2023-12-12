@@ -19,7 +19,7 @@ def writeInFile(name, content):
 	file.write(str(content) + '\n')
 	file.close()
 
-def isPermutationSorted(P):
+def isIdentityPermutation(P):
 	n = 0
 	for p in P:
 		n = n + 1
