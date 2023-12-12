@@ -18,3 +18,11 @@ def writeInFile(name, content):
 	file = open(name, 'w')
 	file.write(str(content) + '\n')
 	file.close()
+
+def isPermutationSorted(P):
+	n = 0
+	for p in P:
+		n = n + 1
+		if int(p)!=n:
+			return False
+	return True

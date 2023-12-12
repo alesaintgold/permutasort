@@ -23,7 +23,7 @@ class selectorPermutations:
 					self.__outcomes.append(op_P_)
 			
 			#adding permutations to the right list
-			if op_P_==sorted(P):
+			if isPermutationSorted(op_P_):
 				self.__sortable.append(P)
 			else:
 				self.__unsortable.append(P)
@@ -64,9 +64,9 @@ if __name__ == '__main__':
 		print(unsortable_str)
 		print(outcomes_str)
 
-		writeInFiles("./log/"+n+op+"sortable.txt", sortable_str)
-		writeInFiles("./log/"+n+op+"unsortable.txt", unsortable_str)
-		writeInFiles("./log/"+n+op+"outcomes.txt", outcomes_str)
+		writeInFile("./log/"+n+op+"sortable.txt", sortable_str)
+		writeInFile("./log/"+n+op+"unsortable.txt", unsortable_str)
+		writeInFile("./log/"+n+op+"outcomes.txt", outcomes_str)
 
 	else:
 		from src.gui import PermutaSortGUI
