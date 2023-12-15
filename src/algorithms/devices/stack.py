@@ -17,7 +17,20 @@ class Stack:
 		return len(self.innerStack)==0
 
 class POPStack():
-	"""yet to implement"""
-	def __init__(self, arg):
-		self.arg = arg
-		
+	def __init__(self):
+		self.innerStack = Stack()
+
+	def push(self, value):
+		self.innerStack.push(value)
+
+	def pop(self):
+		pop_ = []
+		while not self.innerStack.isEmpty():
+			pop_.append(self.innerStack.pop())
+		return pop_
+
+	def peek(self):
+		return self.innerStack.peek()
+
+	def isEmpty(self):
+		return self.innerStack.isEmpty()

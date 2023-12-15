@@ -1,6 +1,6 @@
-from src.algorithms.devices.stack import Stack
+from .devices.stack import *
 
-#stack-sort
+#stacksort
 def S(P):
 	output = []
 	stack = Stack();
@@ -10,4 +10,16 @@ def S(P):
 		stack.push(pi)
 	while not stack.isEmpty():
 		output.append(stack.pop())
+	return output
+
+#POP-stacksort
+def PS(P):
+	output = []
+	stack = POPStack();
+	for pi in P:
+		while not stack.isEmpty() and stack.peek()<pi:
+			output = output + stack.pop()
+		stack.push(pi)
+	while not stack.isEmpty():
+		output = output + stack.pop()
 	return output

@@ -17,22 +17,22 @@ class selectorPermutations:
 
 		# generation of permutations
 		permutations_list = list(permutations(range(1,num+1)))
-		
+
 		for P in permutations_list:
 
 			# applying the operator to the permutation
 			op_P_ = op(P)
-			
+
 			# adding outcome to the list
 			if op_P_ not in self.__outcomes:
 				self.__outcomes.append(op_P_)
-			
+
 			# adding permutations to the right list
 			if isIdentityPermutation(op_P_):
 				self.__sortable.append(P)
 			else:
 				self.__unsortable.append(P)
-		
+
 	def getSortable(self):
 		return self.__sortable
 
@@ -43,9 +43,9 @@ class selectorPermutations:
 		return self.__outcomes
 
 if __name__ == '__main__':
-	
+
 	narg = len(sys.argv)
-	
+
 	if narg not in (1,3):
 		print("ERROR: expected 2 arguments or none, but got these "+str(len(sys.argv)-1)+": " + str(sys.argv[1:]))
 		exit()

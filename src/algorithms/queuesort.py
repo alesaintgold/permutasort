@@ -1,4 +1,4 @@
-from src.algorithms.devices.queue import Queue 
+from .devices.queue import *
 
 #queue-sort
 def Q(P):
@@ -16,8 +16,17 @@ def Q(P):
 		output.append(queue.dequeue())
 	return output
 
-class POPQueue():
-	"""yet to implement"""
-	def __init__(self, arg):
-		self.arg = arg
-		
+def PQ(P):
+	output = []
+	queue = POPQueue()
+	for pi in P:
+		if queue.isEmpty() or queue.peeklast()<pi:
+			queue.enqueue(pi)
+		else:
+			while not queue.isEmpty() and queue.peek()<pi:
+				output = output + queue.dequeue()
+			output.append(pi)
+	# emtpy the queue in the output
+	while not queue.isEmpty():
+		output = output + queue.dequeue()
+	return output

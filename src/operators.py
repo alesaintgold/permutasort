@@ -1,12 +1,14 @@
-from src.algorithms.bubblesort import B
-from src.algorithms.queuesort import Q
-from src.algorithms.stacksort import S
+from .algorithms.bubblesort import B
+from .algorithms.queuesort import *
+from .algorithms.stacksort import *
 
 #if implementing new operators, add them to the index
 algorithmsIndex = {
  	"B": B,
  	"Q": Q,
- 	"S": S
+ 	"S": S,
+ 	"PS": PS,
+ 	"PQ": PQ
 }
 
 def compositionOf(op1,op2):

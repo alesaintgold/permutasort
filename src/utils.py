@@ -6,13 +6,20 @@ def printlist(list):
 	return result
 
 def getOperator(key):
-	from src.operators import algorithmsIndex, compositionOf
-	if len(key)==1:
+	from .operators import algorithmsIndex, compositionOf
+	if len(key)==1 or (len(key)==2 and (key[0]=='P')):
 		if key not in algorithmsIndex:
 			print("ERROR: unsupported operator " + key)
 			exit()
 		return algorithmsIndex[key]
-	return compositionOf(getOperator(key[:-1]),getOperator(key[-1]))
+	else:
+		if key[0]=='P':
+			first_operator = key[:2]
+			second_operator = key[2:]
+		else:
+			first_operator = key[:1]
+			second_operator = key[1:]
+		return compositionOf(getOperator(first_operator),getOperator(second_operator))
 
 def writeInFile(name, content):
 	file = open(name, 'w')
