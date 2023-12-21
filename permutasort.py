@@ -1,8 +1,12 @@
 import sys
 from itertools import permutations
 
-from src.operators import *
-from src.utils import *
+if __name__ == '__main__':
+	from src.operators import *
+	from src.utils import *
+else:
+	from .src.operators import *
+	from .src.utils import *
 
 class selectorPermutations:
 	def __init__(self,num,op):
