@@ -32,7 +32,8 @@ class selectorPermutations:
 				self.__outcomes.append(op_P_)
 
 			# adding permutations to the right list
-			if isIdentityPermutation(op_P_):
+			#if isIdentityPermutation(list(op_P_)):
+			if op_P_ == sorted(P):
 				self.__sortable.append(P)
 			else:
 				self.__unsortable.append(P)
