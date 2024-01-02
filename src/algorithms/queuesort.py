@@ -24,7 +24,7 @@ def PQ(P):
 			queue.enqueue(pi)
 		elif pi == int(queue.peeklast())+1:
 			queue.enqueue(pi)
-		elif int(queue.peek()) > pi:
+		elif int(queue.peek()) > int(pi):
 			output.append(pi)
 		else:
 			output = output + queue.dequeue()
