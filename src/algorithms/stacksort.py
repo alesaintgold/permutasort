@@ -17,9 +17,10 @@ def PS(P):
 	output = []
 	stack = POPStack();
 	for pi in P:
-		while not stack.isEmpty() and stack.peek()<pi:
+		if stack.isEmpty() or stack.peek()>pi:
+			stack.push(pi)
+		else:
 			output = output + stack.pop()
-		stack.push(pi)
-	while not stack.isEmpty():
-		output = output + stack.pop()
+			stack.push(pi)
+	output = output+ stack.pop()
 	return output

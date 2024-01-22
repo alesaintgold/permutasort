@@ -8,7 +8,7 @@ algorithmsIndex = {
  	"Q": Q,
  	"S": S,
  	"PS": PS,
- 	"PQ": PQ
+ 	"PQ": Cons
 }
 
 def compositionOf(op1,op2):

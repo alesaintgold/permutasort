@@ -16,19 +16,18 @@ def Q(P):
 		output.append(queue.dequeue())
 	return output
 
-def PQ(P):
+def Cons(P):
 	output = []
-	queue = POPQueue()
+	queue = Queue()
 	for pi in P:
-		if queue.isEmpty():
-			queue.enqueue(pi)
-		elif pi == int(queue.peeklast())+1:
+		if queue.isEmpty() or int(pi) == int(queue.peeklast())+1:
 			queue.enqueue(pi)
 		elif int(queue.peek()) > int(pi):
 			output.append(pi)
 		else:
-			output = output + queue.dequeue()
+			while not queue.isEmpty():
+				output.append(queue.dequeue())
 			queue.enqueue(pi)
-	if not queue.isEmpty():
-		output = output + queue.dequeue()
+	while not queue.isEmpty():
+		output.append(queue.dequeue())
 	return output

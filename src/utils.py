@@ -33,3 +33,4 @@ def isIdentityPermutation(P):
 		if int(p)!=n:
 			return False
 	return True
+
